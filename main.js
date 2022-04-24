@@ -33,7 +33,7 @@ function Gracz(numer, kolor) {
 
     };
 
-    this.makePionek = function () {
+    this.makePionek = function () {                         //utworzenie zestawu 4 pionków dla jednego z graczy
         var kolorPionka, numerPionka, poleStartowe, i, x;
         var img_g = [4];
         var img_y = [4];
@@ -41,7 +41,7 @@ function Gracz(numer, kolor) {
         var img_r = [4];
         //var img_gg = document.createElement('img');
          //   img_g.src = "/obrazy/green_pawn.png";
-        for (i = 0; i < 4; i += 1) {
+        for (i = 0; i < 4; i += 1) {                        //przygotowanie graficznej reprezentacji pionka
             img_g[i] = document.createElement('img');
             img_g[i].src = "/obrazy/green_pawn.png";
             img_y[i] = document.createElement('img');
@@ -52,8 +52,8 @@ function Gracz(numer, kolor) {
             img_r[i].src = "/obrazy/red_pawn.png";
         }
 
-        for (i = 0; i < 4; i += 1) {
-            this.pionki[i] = new Pionek("p" +this.kolor + (i + 1), this.kolor, i + 1, this.kolor + "s" + (i + 1), 0);
+        for (i = 0; i < 4; i += 1) {                    
+            this.pionki[i] = new Pionek("p" +this.kolor + (i + 1), this.kolor, i + 1, this.kolor + "s" + (i + 1), 0); //(nazwa, kolor)
             x = document.getElementById(this.kolor + "s" + (i + 1));
            // x.innerHTML = this.kolor + (i + 1);
             if (this.kolor == "g") {
