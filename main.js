@@ -53,7 +53,7 @@ function Gracz(numer, kolor) {
         }
 
         for (i = 0; i < 4; i += 1) {                    
-            this.pionki[i] = new Pionek("p" +this.kolor + (i + 1), this.kolor, i + 1, this.kolor + "s" + (i + 1), 0); //(nazwa, kolor)
+            this.pionki[i] = new Pionek("p" +this.kolor + (i + 1), this.kolor, i + 1, this.kolor + "s" + (i + 1), 0); //(nazwa, kolor, nr, pole, ruchy)
             x = document.getElementById(this.kolor + "s" + (i + 1));
            // x.innerHTML = this.kolor + (i + 1);
             if (this.kolor == "g") {
