@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Chińczyk Online</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" />
+    </head>
+    <body>
+        <div class="kontener">
+            <div class="user_panel">
+                <div id="panel1">
+                    <label class="hidden1">Graczu nr 1, wybierz swoją frakcję:</label>
+                    <select id="select1" class="hidden1">
+                    <option value="g1">zielony</option>
+                    <option value="y1">żółty</option>
+                    <option value="b1">niebieski</option>
+                    <option value="r1">czerwony</option>
+                    </select>
+                    <form class="hidden1">
+                    <input type="button" value="ok" id="ok1">
+                    </form>
+                </div>
+            <br>
+                <div id="panel2"> 
+                    <label class="hidden2">Graczu nr 2, wybierz swoją frakcję:</label>
+                    <select id="select2" class="hidden2">
+                    <option value="g2">zielony</option>
+                    <option value="y2">żółty</option>
+                    <option value="b2">niebieski</option>
+                    <option value="r2">czerwony</option>
+                    </select>
+                    <form class="hidden2">
+                    <input type="button" value="ok" id="ok2">
+                    </form>
+                </div>  
+            <br>
+                <div id="kostka">
+                    <form id="losuj">
+                        <input type="button" value="rzut kostką", id="losowanie">
+                    </form>
+                    <div id="oczka"></div>
+                    <br>
+                    <div id="kolej_komunikat"></div>
+                </div>
+            </div>
+            <div class="kontener1">
+                <!--zielony--><div class="w1-k1 green">
+                    <div class="w1-k1-sub white">
+                        <div id="gs3" class="green"></div>
+                        <div id="gs4" class="green"></div>
+                        <div id="gs1" class="green"></div>
+                        <div id="gs2" class="green"></div>
+                </div>
+                </div>
+                <!--ścieżka--><div class="w1-k2">
+                <!--pierwsza linia-->
+                <div id="y6"></div>
+                <div id="y7"></div>
+                <div id="y8"></div>
+                <!--druga linia-->
+                <div id="y5"></div>
+                <div id="y14" class="yellow"></div>
+                <div id="y9" class="yellow"></div>
+                <!--trzecia linia-->
+                <div id="y4">                </div>
+                <div id="y15" class="yellow"></div>
+                <div id="y10"></div>
+                <!--czwarta linia-->
+                <div id="y3"></div>
+                <div id="y16" class="yellow"></div>
+                <div id="y11"></div>
+                <!--piąta linia-->
+                <div id="y2"></div>
+                <div id="y17" class="yellow"></div>
+                <div id="y12"></div>
+                <!--szósta linia-->
+                <div id="y1"></div>
+                <div id="y18" class="yellow"></div>
+                <div id="y13"></div>
+                </div>
+                <!--żółty--><div class="w1-k3 yellow">
+                    <div class="w1-k3-sub white">
+                        <div id="ys1" class="yellow"></div>
+                        <div id="ys3" class="yellow"></div>
+                        <div id="ys2" class="yellow"></div>
+                        <div id="ys4" class="yellow"></div>
+                </div>
+                </div>
+            </div>
+            <div class="kontener2">
+                <!--ścieżka--><div class="w2-k1">
+                <!--pierwsza linia-->
+                <div id="g8"></div>
+                <div id="g9" class="green"></div>
+                <div id="g10"></div>
+                <div id="g11"></div>
+                <div id="g12"></div>
+                <div id="g13"></div>
+                <!--druga linia-->
+                <div id="g7"></div>
+                <div id="g14" class="green"></div>
+                <div id="g15" class="green"></div>
+                <div id="g16" class="green"></div>
+                <div id="g17" class="green"></div>
+                <div id="g18" class="green"></div>
+                <!--trzecia linia-->
+                <div id="g6"></div>
+                <div id="g5"></div>
+                <div id="g4"></div>
+                <div id="g3"></div>
+                <div id="g2"></div>
+                <div id="g1"></div>
+                </div>
+                <!--dom--><div class="w2-k2">
+                    <div class="contain-triangle">
+                        <div id="g19" class="triangle-left"></div> <!--green-->
+                        <div id="y19" class="triangle-up"></div>     <!--yellow-->
+                        <div id="b19" class="triangle-right"></div>  <!--blue-->
+                        <div id="r19" class="triangle-down"></div>   <!--red-->
+                </div>
+                </div>
+                <!--ścieżka--><div class="w2-k3">
+                <!--pierwsza linia-->
+                <div id="b1"></div>
+                <div id="b2"></div>
+                <div id="b3"></div>
+                <div id="b4"></div>
+                <div id="b5"></div>
+                <div id="b6"></div>
+                <!--druga linia-->
+                <div id="b18" class="blue"></div>
+                <div id="b17" class="blue"></div>
+                <div id="b16" class="blue"></div>
+                <div id="b15" class="blue"></div>
+                <div id="b14" class="blue"></div>
+                <div id="b7"></div>
+                <!--trzecia linia-->
+                <div id="b13"></div>
+                <div id="b12"></div>
+                <div id="b11"></div>
+                <div id="b10"></div>
+                <div id="b9" class="blue"></div>
+                <div id="b8"></div>
+                </div>
+            </div>
+            <div class="kontener3">
+                <!--czerwony--><div class="w3-k1 red">
+                    <div class="w3-k1-sub white">
+                        <div id="rs4" class="red"></div>
+                        <div id="rs2" class="red"></div>
+                        <div id="rs3" class="red"></div>
+                        <div id="rs1" class="red"></div>
+                </div>
+                </div>
+                <!--ścieżka--><div class="w3-k2">
+                <!--pierwsza linia-->
+                <div id="r13"></div>
+                <div id="r18" class="red"></div>
+                <div id="r1"></div>
+                <!--druga linia-->
+                <div id="r12"></div>
+                <div id="r17" class="red"></div>
+                <div id="r2"></div>
+                <!--trzecia linia-->
+                <div id="r11"></div>
+                <div id="r16" class="red"></div>
+                <div id="r3"></div>
+                <!--czwarta linia-->
+                <div id="r10"></div>
+                <div id="r15" class="red"></div>
+                <div id="r4"></div>
+                <!--piąta linia-->
+                <div id="r9" class="red"></div>
+                <div id="r14" class="red"></div>
+                <div id="r5"></div>
+                <!--szósta linia-->
+                <div id="r8"></div>
+                <div id="r7"></div>
+                <div id="r6"></div>
+                </div>
+                <!--niebieski--><div class="w3-k3 blue">
+                    <div class="w3-k3-sub white">
+                        <div id="bs2" class="blue"></div>
+                        <div id="bs1" class="blue"></div>
+                        <div id="bs4" class="blue"></div>
+                        <div id="bs3" class="blue"></div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <script src="main.js"></script>    
+    </body>
+
+
+
+</html>
