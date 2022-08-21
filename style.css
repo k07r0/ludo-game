@@ -170,7 +170,7 @@
     width: 20%;
     position: fixed;
     left: 20px;
-    border: 3px solid #73AD21;
+    border: 3px solid #070706;
     
 }
 #kostka{
@@ -217,4 +217,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.fitting_test{
+    height: 30%;
+    width: 20%;
+    position: fixed;
+    right: 20px;
+    border: 3px solid #070706;
+}
+.ftest{
+    width:50% !important;
+     margin: 0 auto !important;
+     display:block !important;
+     float:none !important;
+    
 }
