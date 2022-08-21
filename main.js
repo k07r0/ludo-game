@@ -163,9 +163,9 @@ function Gracz(numer, kolor) {
 }
 
 function Gra() {
-    this.gracze = [4];
-    this.kolejka = [];
-    this.kolej = 0;
+    this.gracze = [4];  //to pole zawiera referencje do wszystkich graczy
+    this.kolejka = [];  //to samo co wyzej, ale jest posortowane
+    this.kolej = 0;     //wskazuje czyja jest obecnie kolej
     this.wyborPionkaPlansza = false;
     this.wyborPionkaStart = false;
     this.przelaczKolejke = function () {
@@ -395,23 +395,21 @@ document.getElementById("ok2").onclick = function () {
 document.getElementById("losowanie").onclick = function () {
     "use strict";
     gra.kolejka[gra.kolej].przetwarzanie(gra);
-    //window.alert(gra.kolejka[0].kolor);
-   /* var i;
-    var tekst = " ";
-    for (i = 0; i < 4; i += 1) {
-        if (gra.gracze[i] !== undefined) {
-            window.alert(i + " " + typeof gra.gracze[i] + " " + gra.gracze[i].kolor);
-        } else {
-            window.alert(i + "undefined");
-        }
-    }
-    for (i = 0; i < gra.kolejka.length; i += 1) {
-        if (gra.kolejka[i] !== undefined) {
-            window.alert(i + " " + typeof gra.kolejka[i] + " " + gra.kolejka[i].kolor);
-        } else {
-            window.alert(i + "undefined");
-        }
-    } */
-    //window.alert("Ostatni alert testowy gra.kolejka[0] = " + gra.kolejka[0].kolor);
+
 };
+
+var k, l;
+document.getElementById("ft").onclick = function () {
+    "use strict";
+    document.addEventListener('click', function (e) {
+        "use strict";
+        l = Math.round(Math.random());
+        k = e.target.id;
+        gra.kolejka[l].wybrano = k;
+        gra.kolejka[l].postawPionka();
+
+    });
+    
+    
+}
 
