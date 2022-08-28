@@ -35,52 +35,76 @@ function Gracz(numer, kolor) {
 
     this.makePionek = function () {                         //utworzenie zestawu 4 pionków dla jednego z graczy
         var kolorPionka, numerPionka, poleStartowe, i, x;
-        var img_g = [4];
+        var pionek_zielony = [4];
+        var pionek_zolty = [4];
+        var pionek_niebieski = [4];
+        var pionek_czerwony = [4];
         var img_y = [4];
+        var img_g = [4];
         var img_b = [4];
         var img_r = [4];
-        //var img_gg = document.createElement('img');
-         //   img_g.src = "/obrazy/green_pawn.png";
-        for (i = 0; i < 4; i += 1) {                        //przygotowanie graficznej reprezentacji pionka
-            img_g[i] = document.createElement('img');
-            img_g[i].src = "/obrazy/green_pawn.png";
-            img_y[i] = document.createElement('img');
-            img_y[i].src = "/obrazy/yellow_pawn.png";
-            img_b[i] = document.createElement('img');
-            img_b[i].src = "/obrazy/blue_pawn.png";
-            img_r[i] = document.createElement('img');
-            img_r[i].src = "/obrazy/red_pawn.png";
+
+        for (i = 0; i < 4; i += 1){
+        img_y[i] = document.createElement('img');
+        img_y[i].src = "/obrazy/yellow_pawn.png";
+        img_g[i] = document.createElement('img');
+        img_g[i].src = "/obrazy/green_pawn.png";
+        img_b[i] = document.createElement('img');
+        img_b[i].src = "/obrazy/blue_pawn.png";
+        img_r[i] = document.createElement('img');
+        img_r[i].src = "/obrazy/red_pawn.png";
+        img_y[i].classList.add("pieces");
+        img_g[i].classList.add("pieces");
+        img_b[i].classList.add("pieces");
+        img_r[i].classList.add("pieces");
         }
-        document.createElement('div') // <---- Właśnie tu skończyłem.
+
+        for (i = 0; i < 4; i += 1) {                        //przygotowanie graficznej reprezentacji pionka
+            pionek_zielony[i] = document.createElement('div');
+            //pionek_zielony[i].classList.add("pioneczki_zielone");
+            pionek_zielony[i].classList.add("pioneczki");
+            
+            pionek_zolty[i] = document.createElement('div');
+            //pionek_zolty[i].classList.add("pioneczki_zolte");
+            pionek_zolty[i].classList.add("pioneczki");
+            
+            pionek_niebieski[i] = document.createElement('div');
+            //pionek_niebieski[i].classList.add("pioneczki_niebieskie");
+            pionek_niebieski[i].classList.add("pioneczki");
+            
+            pionek_czerwony[i] = document.createElement('div');
+            //pionek_czerwony[i].classList.add("pioneczki_czerwone");
+            pionek_czerwony[i].classList.add("pioneczki");
+        }
 
         for (i = 0; i < 4; i += 1) {                    
             this.pionki[i] = new Pionek("p" +this.kolor + (i + 1), this.kolor, i + 1, this.kolor + "s" + (i + 1), 0); //(nazwa, kolor, nr, pole, ruchy)
             x = document.getElementById(this.kolor + "s" + (i + 1));
-           // x.innerHTML = this.kolor + (i + 1);
+           
             if (this.kolor == "g") {
-                x.appendChild(img_g[i]);
-                img_g[i].classList.add("pieces");
-                img_g[i].id = "p" + this.kolor + (i + 1);
-                this.pawns[i] = img_g[i];
-                this.pionki[i].pawn = img_g[i];
+                x.appendChild(pionek_zielony[i]);
+                pionek_zielony[i].id = "p" + this.kolor + (i + 1);
+                pionek_zielony[i].appendChild(img_g[i]);
+                this.pawns[i] = pionek_zielony[i];
+                this.pionki[i].pawn = pionek_zielony[i];
             } else if (this.kolor == "y") {
-                x.appendChild(img_y[i]);
-                img_y[i].classList.add("pieces");
-                img_y[i].id = "p" + this.kolor + (i + 1);
-                this.pawns[i] = img_y[i];
-                this.pionki[i].pawn = img_y[i];
+                x.appendChild(pionek_zolty[i]);
+                pionek_zolty[i].id = "p" + this.kolor + (i + 1);
+                pionek_zolty[i].appendChild(img_y[i]);
+                this.pawns[i] = pionek_zolty[i];
+                this.pionki[i].pawn = pionek_zolty[i];
             } else if (this.kolor == "b") {
-                x.appendChild(img_b[i]);
-                img_b[i].classList.add("pieces");
-                img_b[i].id = "p" + this.kolor + (i + 1);
-                this.pawns[i] = img_b[i];
-                this.pionki[i].pawn = img_b[i];
+                x.appendChild(pionek_niebieski[i]);
+                pionek_niebieski[i].id = "p" + this.kolor + (i + 1);
+                pionek_niebieski[i].appendChild(img_b[i]);
+                this.pawns[i] = pionek_niebieski[i];
+                this.pionki[i].pawn = pionek_niebieski[i];
             } else {
-                x.appendChild(img_r[i]);
-                img_r[i].classList.add("pieces");
-                img_r[i].id = "p" + this.kolor + (i + 1);
-                this.pawns[i] = img_r[i];
-                this.pionki[i].pawn = img_r[i];
+                x.appendChild(pionek_czerwony[i]);
+                pionek_czerwony[i].id = "p" + this.kolor + (i + 1);
+                pionek_czerwony[i].appendChild(img_r[i]);
+                this.pawns[i] = pionek_czerwony[i];
+                this.pionki[i].pawn = pionek_czerwony[i];
             }
         }
     };
@@ -329,6 +353,7 @@ document.addEventListener('click', function (e) {
         gra.wyborPionkaStart = false;
         gra.wyborPionkaPlansza = false;
     }
+    
     if (((e.target && e.target.parentNode.id === gra.kolejka[gra.kolej].pionki[0].pole) ||
             (e.target && e.target.parentNode.id === gra.kolejka[gra.kolej].pionki[1].pole) ||
             (e.target && e.target.parentNode.id === gra.kolejka[gra.kolej].pionki[2].pole) ||
@@ -399,6 +424,7 @@ document.getElementById("losowanie").onclick = function () {
 
 };
 
+//testowe stawianie pionków na polu
 var k, l;
 document.getElementById("ft").onclick = function () {
     "use strict";
