@@ -79,16 +79,7 @@ function Gracz(numer, kolor) {
 
         for (i = 0; i < 4; i += 1) {                    
             this.pionki[i] = new Pionek("p" +this.kolor + (i + 1), this.kolor, i + 1, this.kolor + "s" + (i + 1), 0); //(nazwa, kolor, nr, pole, ruchy)
-<<<<<<< HEAD
-            x = document.getElementById(this.kolor + "s" + (i + 1)); // weź id jednego z  pól startowych
-           // x.innerHTML = this.kolor + (i + 1);
-            if (this.kolor == "g") {
-                x.appendChild(img_g[i]);                // umieść element 'img' w polu startowym
-                img_g[i].classList.add("pieces");           // dodanie klasy konfigurującej wygląd obrazu
-                img_g[i].id = "p" + this.kolor + (i + 1);   // nadanie elementowi 'img' unikalnego id
-                this.pawns[i] = img_g[i];                   
-                this.pionki[i].pawn = img_g[i];        // element zostaje przypisany do pola 'pawn' wcześniej utworzonego pionka
-=======
+
             x = document.getElementById(this.kolor + "s" + (i + 1));
            
             if (this.kolor == "g") {
@@ -97,7 +88,6 @@ function Gracz(numer, kolor) {
                 pionek_zielony[i].appendChild(img_g[i]);
                 this.pawns[i] = pionek_zielony[i];
                 this.pionki[i].pawn = pionek_zielony[i];
->>>>>>> pawn_fitting
             } else if (this.kolor == "y") {
                 x.appendChild(pionek_zolty[i]);
                 pionek_zolty[i].id = "p" + this.kolor + (i + 1);
