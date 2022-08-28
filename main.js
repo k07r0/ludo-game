@@ -51,6 +51,7 @@ function Gracz(numer, kolor) {
             img_r[i] = document.createElement('img');
             img_r[i].src = "/obrazy/red_pawn.png";
         }
+        document.createElement('div') // <---- Właśnie tu skończyłem.
 
         for (i = 0; i < 4; i += 1) {                    
             this.pionki[i] = new Pionek("p" +this.kolor + (i + 1), this.kolor, i + 1, this.kolor + "s" + (i + 1), 0); //(nazwa, kolor, nr, pole, ruchy)
