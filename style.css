@@ -195,6 +195,7 @@
     margin-left: auto;
     margin-right: auto;
     padding: 15% 0% 15% 0%;
+    pointer-events:none;
 }
 
 .w2-k1 > div {
@@ -231,5 +232,78 @@
      margin: 0 auto !important;
      display:block !important;
      float:none !important;
-    
+}
+.pioneczki{
+    display: flex;
+    float: left;
+    max-width: 100%;
+    max-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15% 0% 15% 0%;
+    z-index: 5;
+}
+.pioneczki_zielone{
+    display: flex;
+    float: left;
+    height: 30px;
+    width: 50px;
+    max-width: 100%;
+    max-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15% 0% 15% 0%;
+    background-image: url('/obrazy/green_pawn.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    background-size:contain;
+    z-index: 5;
+}
+.pioneczki_czerwone{
+    display: flex;
+    float: left;
+    height: 30px;
+    width: 50px;
+    max-width: 100%;
+    max-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15% 0% 15% 0%;
+    background-image: url('/obrazy/red_pawn.png');
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position: center;
+    z-index: 5;
+}
+.pioneczki_zolte{
+    display: flex;
+    float: left;
+    height: 30px;
+    width: 50px;
+    max-width: 100%;
+    max-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15% 0% 15% 0%;
+    background-image: url("/obrazy/yellow_pawn.png");
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position: center;
+    z-index: 5;
+}
+.pioneczki_niebieskie{
+    display: flex;
+    float: left;
+    height: 30px;
+    width: 50px;
+    max-width: 100%;
+    max-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15% 0% 15% 0%;
+    background-image: url("/obrazy/blue_pawn.png");
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position: center;
+    z-index: 5;
 }
