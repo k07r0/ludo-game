@@ -356,3 +356,10 @@
     margin-right: auto;
     padding: 15% 0% 15% 0%;
 }
+
+.zoom{
+    transition: transform .2s;
+}
+.zoom:hover{
+    transform: scale(3.5);
+}
