@@ -307,3 +307,59 @@
     background-position: center;
     z-index: 5;
 }
+
+.ostatnie_pole_l{
+    position: absolute;
+    left: 0px;
+    top: 33%;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: block;
+    float: none;
+    height: 33%;
+    width: 40%;
+    padding: 15% 0% 15% 0%;
+}
+.ostatnie_pole_g{
+    position: absolute;
+    top: 0px;
+    left: 30%;
+    display:block;
+    float: none;
+    height: 33%;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15% 0% 15% 0%;
+}
+.ostatnie_pole_p{
+    position: absolute;
+    right: 0px;
+    top: 33%;
+    display: block;
+    float: none;
+    height: 33%;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15% 0% 15% 0%;
+}
+.ostatnie_pole_d{
+    position: absolute;
+    bottom: 0px;
+    left: 30%;
+    display: block;
+    float: none;
+    height: 33%;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15% 0% 15% 0%;
+}
+
+.zoom{
+    transition: transform .2s;
+}
+.zoom:hover{
+    transform: scale(3.5);
+}
