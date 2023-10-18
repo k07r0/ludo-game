@@ -1,0 +1,198 @@
+*,*:before,*:after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.kontener{
+    width: 600px;
+    height: 600px;
+    margin: 10px auto;
+    cursor: pointer;
+}
+.kontener1,.kontener3{
+    width: 100%;
+    height: 40%;
+    display: flex;
+}
+.kontener2{
+    width: 100%;
+    height: 20%;
+    display: flex;
+}
+.w1-k1,
+.w1-k3,
+.w3-k1,
+.w3-k3{
+    width: 40%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.w1-k2,
+.w3-k2{
+    width: 20%;
+    height: 100%;
+}
+.w2-k1,
+.w2-k3{
+    width: 40%;
+    height: 100%;
+}
+.w2-k2{
+    width: 20%;
+    height: 100%;
+}
+/*kolor*/
+.green{
+    background-color: #84c21f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.red{
+    background-color: #dc2418;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.blue{
+    background-color: #0092dc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.yellow{
+    background-color: #f6c700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.white{
+    background-color: #fff;
+}
+.w1-k1-sub,
+.w1-k3-sub,
+.w3-k1-sub,
+.w3-k3-sub{
+    width: 70%;
+    height: 70%;
+}
+.w1-k1-sub>div,
+.w1-k3-sub>div,
+.w3-k1-sub>div,
+.w3-k3-sub>div{
+    width: 35%;
+    height: 35%;
+    margin: 7.5%;
+    float: left;
+    box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+    transition: all 0.3s cubic-bezier(.25,.8,25,1);
+}
+.w1-k1-sub>div:hover,
+.w1-k3-sub>div:hover,
+.w3-k1-sub>div:hover,
+.w3-k3-sub>div:hover{
+    box-shadow: -2px 14px 28px rgba(0,0,0,.25), -2px 10px 28px rgba(0,0,0,.22);
+    
+}
+.w1-k2>div,
+.w3-k2>div{
+    width: 33.33%;
+    height: 16.667%;
+    float: left;
+    border: 1px solid #000;
+}
+.w2-k1>div,
+.w2-k3>div{
+    width: 16.67%;
+    height: 33.33%;
+    float: left;
+    border: 1px solid #000;
+}
+.icon{
+    margin: 3px;
+    color: #fff;
+}
+.contain-triangle{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.triangle-left{
+    width: 0;
+    height: 0;
+    border-top: 55px solid transparent;
+    border-left: 55px solid #84c21f;
+    border-bottom: 55px solid transparent;
+    position: absolute;
+    left: 0;
+    top: 5px
+}
+.triangle-up{
+    width: 0;
+    height: 0;
+    border-left: 55px solid transparent;
+    border-right: 55px solid transparent;
+    border-top: 55px solid #f6c700;
+    position: absolute;
+    left: 5px;
+    top: 0;
+}
+.triangle-right{
+    width: 0;
+    height: 0;
+    border-right: 55px solid #0092dc;
+    border-bottom: 55px solid transparent;
+    border-top: 55px solid transparent;
+    position: absolute;
+    right: 0;
+    top: 5px;
+}
+.triangle-down{
+    width: 0;
+    height: 0;
+    border-left: 55px solid transparent;
+    border-right: 55px solid transparent;
+    border-bottom: 55px solid #dc2418;
+    position: absolute;
+    left: 5px;
+    bottom: 0;
+}
+.hidden1{
+    
+}
+.hidden2{
+    
+}
+.user_panel{
+    height: 70%;
+    width: 20%;
+    position: fixed;
+    left: 20px;
+    border: 3px solid #73AD21;
+    
+}
+#kostka{
+    padding: 70px 0;
+    height: 8em;
+    position: relative;
+    border: 3px solid #73AD21;
+}
+#oczka{
+    margin: 0;
+    position: absolute;
+    top:  20%;
+    left: 50%;
+    font-size: 70px;
+}
+
+.pieces{
+    display: block;
+    max-width:100%;
+    max-height:100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15% 0% 15% 0;
+
+}
