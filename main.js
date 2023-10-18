@@ -5,71 +5,107 @@ function Gracz(numer, kolor) {
     this.numer = numer;
     this.kolor = kolor;
     this.pionki = [4];
+    this.pawns = [4];
+    this.numerWybranegoPionka = '';
     this.oczka = 0;
     this.wybrano = '';
     this.nrWybranegoPionka = 0;
     this.postawPionka = function () {
         var x, y;
-        var nrPionka = this.wybrano[1];
+        var nrPionka = this.wybrano[2];
+        this.nrWybranegoPionka = this.wybrano[2];
         this.nrWybranegoPionka = nrPionka - 1;
         this.pionki[nrPionka - 1].pole = this.kolor + 9;
         x = document.getElementById(this.pionki[nrPionka - 1].pole);
-        x.innerHTML = this.pionki[nrPionka - 1].nazwa;
+        //x.innerHTML = this.pionki[nrPionka - 1].nazwa;
+        x.appendChild(this.pawns[nrPionka - 1]);
         this.pionki[nrPionka - 1].ruchy = 0;
-        y = document.getElementById(this.wybrano[0] + "s" + this.wybrano[1]);
+        y = document.getElementById(this.wybrano[1] + "s" + this.wybrano[2]);
         y.innerHTML = "";
         this.pionki[this.nrWybranegoPionka].naPlanszy = true;
         this.pionki[this.nrWybranegoPionka].naStarcie = false;
+        //window.alert("czy zmienił się stan pionka .naPlanszy? " + this.pionki[this.nrWybranegoPionka].naPlanszy);
     };
 
-    this.makePionek = function () {
+    this.wykonajRuch = function () {
+        var currentPosition, tempNr, tempTabNr, tempTabChar, tempChar, newNumber, z;
+
+
+    };
+
+    this.makePionek = function () {                         //utworzenie zestawu 4 pionków dla jednego z graczy
         var kolorPionka, numerPionka, poleStartowe, i, x;
-        var img_g = [4];
+        var pionek_zielony = [4];
+        var pionek_zolty = [4];
+        var pionek_niebieski = [4];
+        var pionek_czerwony = [4];
         var img_y = [4];
+        var img_g = [4];
         var img_b = [4];
         var img_r = [4];
-        //var img_gg = document.createElement('img');
-         //   img_g.src = "/obrazy/green_pawn.png";
-        for (i = 0; i < 4; i += 1) {
-            img_g[i] = document.createElement('img');
-            img_g[i].src = "/obrazy/green_pawn.png";
-            img_y[i] = document.createElement('img');
-            img_y[i].src = "/obrazy/yellow_pawn.png";
-            img_b[i] = document.createElement('img');
-            img_b[i].src = "/obrazy/blue_pawn.png";
-            img_r[i] = document.createElement('img');
-            img_r[i].src = "/obrazy/red_pawn.png";
+
+        for (i = 0; i < 4; i += 1){
+        img_y[i] = document.createElement('img');
+        img_y[i].src = "/obrazy/yellow_pawn.png";
+        img_g[i] = document.createElement('img');
+        img_g[i].src = "/obrazy/green_pawn.png";
+        img_b[i] = document.createElement('img');
+        img_b[i].src = "/obrazy/blue_pawn.png";
+        img_r[i] = document.createElement('img');
+        img_r[i].src = "/obrazy/red_pawn.png";
+        img_y[i].classList.add("pieces");
+        img_g[i].classList.add("pieces");
+        img_b[i].classList.add("pieces");
+        img_r[i].classList.add("pieces");
         }
-/*
-            var img_g = document.createElement('img');
-            img_g.src = "/obrazy/green_pawn.png";
 
-            var img_y = document.createElement('img');
-            img_g.src = "/obrazy/yellow_pawn.png";
+        for (i = 0; i < 4; i += 1) {                        //przygotowanie graficznej reprezentacji pionka
+            pionek_zielony[i] = document.createElement('div');
+            //pionek_zielony[i].classList.add("pioneczki_zielone");
+            pionek_zielony[i].classList.add("pioneczki");
+            
+            pionek_zolty[i] = document.createElement('div');
+            //pionek_zolty[i].classList.add("pioneczki_zolte");
+            pionek_zolty[i].classList.add("pioneczki");
+            
+            pionek_niebieski[i] = document.createElement('div');
+            //pionek_niebieski[i].classList.add("pioneczki_niebieskie");
+            pionek_niebieski[i].classList.add("pioneczki");
+            
+            pionek_czerwony[i] = document.createElement('div');
+            //pionek_czerwony[i].classList.add("pioneczki_czerwone");
+            pionek_czerwony[i].classList.add("pioneczki");
+        }
 
-            var img_b = document.createElement('img');
-            img_g.src = "/obrazy/blue_pawn.png";
- 
-            var img_r = document.createElement('img');
-            img_g.src = "/obrazy/red_pawn.png";
+        for (i = 0; i < 4; i += 1) {                    
+            this.pionki[i] = new Pionek("p" +this.kolor + (i + 1), this.kolor, i + 1, this.kolor + "s" + (i + 1), 0); //(nazwa, kolor, nr, pole, ruchy)
 
-            */
-        for (i = 0; i < 4; i += 1) {
-            this.pionki[i] = new Pionek(this.kolor + (i + 1), this.kolor, i + 1, this.kolor + "s" + (i + 1), 0);
             x = document.getElementById(this.kolor + "s" + (i + 1));
-           // x.innerHTML = this.kolor + (i + 1);
+           
             if (this.kolor == "g") {
-                x.appendChild(img_g[i]);
-                img_g[i].classList.add("pieces");
+                x.appendChild(pionek_zielony[i]);
+                pionek_zielony[i].id = "p" + this.kolor + (i + 1);
+                pionek_zielony[i].appendChild(img_g[i]);
+                this.pawns[i] = pionek_zielony[i];
+                this.pionki[i].pawn = pionek_zielony[i];
             } else if (this.kolor == "y") {
-                x.appendChild(img_y[i]);
-                img_y[i].classList.add("pieces");
+                x.appendChild(pionek_zolty[i]);
+                pionek_zolty[i].id = "p" + this.kolor + (i + 1);
+                pionek_zolty[i].appendChild(img_y[i]);
+                this.pawns[i] = pionek_zolty[i];
+                this.pionki[i].pawn = pionek_zolty[i];
             } else if (this.kolor == "b") {
-                x.appendChild(img_b[i]);
-                img_b[i].classList.add("pieces");
+                x.appendChild(pionek_niebieski[i]);
+                pionek_niebieski[i].id = "p" + this.kolor + (i + 1);
+                pionek_niebieski[i].appendChild(img_b[i]);
+                this.pawns[i] = pionek_niebieski[i];
+                this.pionki[i].pawn = pionek_niebieski[i];
             } else {
-                x.appendChild(img_r[i]);
-                img_r[i].classList.add("pieces");
+                x.appendChild(pionek_czerwony[i]);
+                pionek_czerwony[i].id = "p" + this.kolor + (i + 1);
+                pionek_czerwony[i].appendChild(img_r[i]);
+                this.pawns[i] = pionek_czerwony[i];
+                this.pionki[i].pawn = pionek_czerwony[i];
             }
         }
     };
@@ -85,7 +121,8 @@ function Gracz(numer, kolor) {
         this.rzutKostki();
         var licznik = 0;
         if (this.oczka !== 6) {
-            if (this.pionki[0].naPlanszy !== true && this.pionki[1].naPlanszy !== true && this.pionki[2].naPlanszy !== true && this.pionki[3].naPlanszy !== true) {
+            if (this.pionki[0].naPlanszy !== true && this.pionki[1].naPlanszy 
+                !== true && this.pionki[2].naPlanszy !== true && this.pionki[3].naPlanszy !== true) {
                 obiekt.przelaczKolejke();
             } else {
                 //czy na planszy jest więcej niż 1 pionek?
@@ -152,9 +189,9 @@ function Gracz(numer, kolor) {
 }
 
 function Gra() {
-    this.gracze = [4];
-    this.kolejka = [];
-    this.kolej = 0;
+    this.gracze = [4];  //to pole zawiera referencje do wszystkich graczy
+    this.kolejka = [];  //to samo co wyzej, ale jest posortowane
+    this.kolej = 0;     //wskazuje czyja jest obecnie kolej
     this.wyborPionkaPlansza = false;
     this.wyborPionkaStart = false;
     this.przelaczKolejke = function () {
@@ -196,6 +233,7 @@ function Pionek(nazwa, kolor, numer, pole, ruchy) {
     this.x = 0;
     this.naPlanszy = false;
     this.naStarcie = true;
+    this.pawn;
    
     this.move = function () {
         var currentPosition, tempNr, tempTabNr, tempTabChar, tempChar, newNumber, z;
@@ -203,6 +241,7 @@ function Pionek(nazwa, kolor, numer, pole, ruchy) {
         tempNr = parseInt(tempTabNr[0], 10);
         tempTabChar = this.pole.replace(/[^a-z]/gi, '');
         tempChar = tempTabChar[0];
+        //window.alert("tempNr= " + tempNr + ", tempChar= " + tempChar);
         if (this.ruchy > 5 && this.kolor === tempChar) {
             if ((this.x + tempNr) > 7 && (this.x + tempNr) < 14) {
                 newNumber = this.x + tempNr + 6;
@@ -237,41 +276,43 @@ function Pionek(nazwa, kolor, numer, pole, ruchy) {
                 }
             }
         } else {
+            //window.alert("else");
             if ((this.x + tempNr) > 13) {
                 if (tempChar === "r") {
                     newNumber = (this.x + tempNr) - 13;
                     currentPosition = "g" + newNumber;
-                    z = document.getElementById(this.pole);
-                    z.innerHTML = "";
+                    //z = document.getElementById(this.pole);
+                    //z.innerHTML = "";
                     this.pole = currentPosition;
                 } else if (tempChar === "g") {
                     newNumber = (this.x + tempNr) - 13;
                     currentPosition = "y" + newNumber;
-                    z = document.getElementById(this.pole);
-                    z.innerHTML = "";
+                    //z = document.getElementById(this.pole);
+                    //z.innerHTML = "";
                     this.pole = currentPosition;
                 } else if (tempChar === "y") {
                     newNumber = (this.x + tempNr) - 13;
                     currentPosition = "b" + newNumber;
-                    z = document.getElementById(this.pole);
-                    z.innerHTML = "";
+                    //z = document.getElementById(this.pole);
+                    //z.innerHTML = "";
                     this.pole = currentPosition;
                 } else if (tempChar === "b") {
                     newNumber = (this.x + tempNr) - 13;
                     currentPosition = "r" + newNumber;
-                    z = document.getElementById(this.pole);
-                    z.innerHTML = "";
+                    //z = document.getElementById(this.pole);
+                    //z.innerHTML = "";
                     this.pole = currentPosition;
                 }
             } else {
-                z = document.getElementById(this.pole);
-                z.innerHTML = "";
+                //z = document.getElementById(this.pole);
+                //z.innerHTML = "";
                 currentPosition = tempChar + (tempNr + this.x);
                 this.pole = currentPosition;
             }
         }
         z = document.getElementById(this.pole);
-        z.innerHTML = this.nazwa;
+        //z.innerHTML = this.nazwa;
+        z.appendChild(this.pawn);
         this.ruchy = this.ruchy + 1;
     };
 }
@@ -301,10 +342,11 @@ var temp;
 document.addEventListener('click', function (e) {
     "use strict";
     //window.alert(e.target.innerHTML);
-    temp = e.target.innerHTML;
-    var id = e.target.id;
-    if (temp[0] === gra.kolejka[gra.kolej].kolor &&
-            id[1] === "s" && gra.wyborPionkaStart === true) {
+    //window.alert(e.target.id);
+    temp = e.target.id;                        //id pionka
+    var id = e.target.parentNode.id;           //id pola na którym stoi pionek
+    if (temp[1] === gra.kolejka[gra.kolej].kolor &&             //jeśli wybrano pionek nalezący do gracza, którego jest kolej && 
+            id[1] === "s" && gra.wyborPionkaStart === true) {   // id pola wskazuje na pole startu && na kostce wypadło "6"
         gra.kolejka[gra.kolej].wybrano = temp;
         gra.kolejka[gra.kolej].postawPionka();
         gra.przelaczKolejke();
@@ -312,11 +354,12 @@ document.addEventListener('click', function (e) {
         gra.wyborPionkaStart = false;
         gra.wyborPionkaPlansza = false;
     }
-    if (((e.target && e.target.id === gra.kolejka[gra.kolej].pionki[0].pole) ||
-            (e.target && e.target.id === gra.kolejka[gra.kolej].pionki[1].pole) ||
-            (e.target && e.target.id === gra.kolejka[gra.kolej].pionki[2].pole) ||
-            (e.target && e.target.id === gra.kolejka[gra.kolej].pionki[3].pole)) && gra.wyborPionkaPlansza === true) {
-        gra.kolejka[gra.kolej].nrWybranegoPionka = temp[1] - 1;
+    
+    if (((e.target && e.target.parentNode.id === gra.kolejka[gra.kolej].pionki[0].pole) ||
+            (e.target && e.target.parentNode.id === gra.kolejka[gra.kolej].pionki[1].pole) ||
+            (e.target && e.target.parentNode.id === gra.kolejka[gra.kolej].pionki[2].pole) ||
+            (e.target && e.target.parentNode.id === gra.kolejka[gra.kolej].pionki[3].pole)) && gra.wyborPionkaPlansza === true) {
+        gra.kolejka[gra.kolej].nrWybranegoPionka = temp[2] - 1;
         gra.kolejka[gra.kolej]
             .pionki[gra.kolejka[gra.kolej].nrWybranegoPionka].x = gra.kolejka[gra.kolej].oczka;
         gra.kolejka[gra.kolej]
@@ -379,23 +422,22 @@ document.getElementById("ok2").onclick = function () {
 document.getElementById("losowanie").onclick = function () {
     "use strict";
     gra.kolejka[gra.kolej].przetwarzanie(gra);
-    //window.alert(gra.kolejka[0].kolor);
-   /* var i;
-    var tekst = " ";
-    for (i = 0; i < 4; i += 1) {
-        if (gra.gracze[i] !== undefined) {
-            window.alert(i + " " + typeof gra.gracze[i] + " " + gra.gracze[i].kolor);
-        } else {
-            window.alert(i + "undefined");
-        }
-    }
-    for (i = 0; i < gra.kolejka.length; i += 1) {
-        if (gra.kolejka[i] !== undefined) {
-            window.alert(i + " " + typeof gra.kolejka[i] + " " + gra.kolejka[i].kolor);
-        } else {
-            window.alert(i + "undefined");
-        }
-    } */
-    //window.alert("Ostatni alert testowy gra.kolejka[0] = " + gra.kolejka[0].kolor);
+
 };
+
+//testowe stawianie pionków na polu
+var k, l;
+document.getElementById("ft").onclick = function () {
+    "use strict";
+    document.addEventListener('click', function (e) {
+        "use strict";
+        l = Math.round(Math.random());
+        k = e.target.id;
+        gra.kolejka[l].wybrano = k;
+        gra.kolejka[l].postawPionka();
+
+    });
+    
+    
+}
 
