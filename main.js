@@ -440,5 +440,3 @@ document.getElementById("ft").onclick = function () {
     
     
 }
-
-//jakiś koment
