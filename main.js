@@ -220,6 +220,13 @@ function Gra() {
         }
         this.kolej_komunikat();
     };
+
+    this.zoomCheck = function () {      // sprawdza czy nadać polu właściwość powiększenia widoku
+        var i, k, l, liczbaPionkow, poleStartowe, poleKoncowe;
+        for (i = 0; this.kolejka.length; i+=1) {
+
+        }
+    }
 }
 var gra = new Gra();
 
@@ -229,18 +236,24 @@ function Pionek(nazwa, kolor, numer, pole, ruchy) {
     this.kolor = kolor;
     this.numer = numer;
     this.pole = pole;
+    this.poleStartowe = poleStartowe;
+    this.poleKoncowe = poleKoncowe;
     this.ruchy = ruchy;
-    this.x = 0;
+    this.x = 0;         // numer na kostce
     this.naPlanszy = false;
     this.naStarcie = true;
     this.pawn;
    
     this.move = function () {
+
         var currentPosition, tempNr, tempTabNr, tempTabChar, tempChar, newNumber, z;
         tempTabNr = this.pole.match(/(\d+)/);
         tempNr = parseInt(tempTabNr[0], 10);
         tempTabChar = this.pole.replace(/[^a-z]/gi, '');
         tempChar = tempTabChar[0];
+
+        this.poleStartowe = tempChar + tempTabNr[0];
+
         //window.alert("tempNr= " + tempNr + ", tempChar= " + tempChar);
         if (this.ruchy > 5 && this.kolor === tempChar) {
             if ((this.x + tempNr) > 7 && (this.x + tempNr) < 14) {
@@ -314,6 +327,7 @@ function Pionek(nazwa, kolor, numer, pole, ruchy) {
         //z.innerHTML = this.nazwa;
         z.appendChild(this.pawn);
         this.ruchy = this.ruchy + 1;
+        this.poleKoncowe = currentPosition;
     };
 }
 
