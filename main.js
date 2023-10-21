@@ -225,15 +225,29 @@ function Gra() {
         this.kolej_komunikat();
     };
 
-    this.zoomCheck = function () {      // sprawdza czy nadać polu właściwość powiększenia widoku
-        var i, k, l, liczbaPionkow, poleStartowe, poleKoncowe;
-        poleStartowe = this.poleStartowePionka;
-        poleKoncowe = this.poleKoncowePionka;
+    this.klasaTestowa = function () {
+
+        window.alert("działa");
+    }
+
+    this.zoomCheck = function (start, koniec) {      // sprawdza czy nadać polu właściwość powiększenia widoku
+        var i, k, l, liczbaPionkow, poleStartowe, poleKoncowe, sumaS = 0, sumaK = 0;
+        poleStartowe = start;
+        poleKoncowe = koniec;
         for (i = 0; this.kolejka.length; i+=1) {
+            for (k = 0; this.kolejka.pionki.length; i+=1) {
+                if (poleStartowe === this.kolejka.pionki[k].pole) {
+                    sumaS += 1;     //suma pionków na polu startowym
+                }
+            for (l = 0; this.kolejka.pionki.length; i+=1) {
+                if (poleKoncowe === this.kolejka.pionki[k].pole) {
+                    sumaK += 1;         //suma pionków na polu końcowym
+                }
+            }
 
         }
     }
-}
+}}
 var gra = new Gra();
 
 function Pionek(nazwa, kolor, numer, pole, ruchy) {
@@ -334,6 +348,7 @@ function Pionek(nazwa, kolor, numer, pole, ruchy) {
         z.appendChild(this.pawn);       //wkleja diva z ilustracją pionka na pole docelowe
         this.ruchy = this.ruchy + 1;
         this.poleKoncowe = currentPosition;
+        gra.zoomCheck (this.poleStartowe, this.poleKoncowe);
     };
 }
 
@@ -359,6 +374,7 @@ function makePionek() {
 }
 
 var temp;
+
 document.addEventListener('click', function (e) {
     "use strict";
     //window.alert(e.target.innerHTML);
@@ -390,6 +406,7 @@ document.addEventListener('click', function (e) {
         gra.wyborPionkaStart = false;
     }
 });
+
 
 //wybór kolorów przez gracza 1
 document.getElementById("ok1").onclick = function () {
