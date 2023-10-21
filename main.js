@@ -247,7 +247,20 @@ function Gra() {
 
         }
     }
-}}
+    if (sumaS > 4) {
+        //nadanie polu startowemu zooma
+    }else {
+        //zabranie polu startowemu zooma
+    }
+    if (sumaK >4) {
+        //nadanie zooma
+    }else {
+        //zabranie zooma
+    }
+} 
+
+
+}
 var gra = new Gra();
 
 function Pionek(nazwa, kolor, numer, pole, ruchy) {
