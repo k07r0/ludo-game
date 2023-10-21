@@ -4,8 +4,8 @@
 function Gracz(numer, kolor) {
     this.numer = numer;
     this.kolor = kolor;
-    this.pionki = [4];
-    this.pawns = [4];
+    this.pionki = [4];      //lista pionków
+    this.pawns = [4];       //lista div'ów ilustrujących pionki
     this.numerWybranegoPionka = '';
     this.oczka = 0;
     this.wybrano = '';
@@ -86,8 +86,8 @@ function Gracz(numer, kolor) {
                 x.appendChild(pionek_zielony[i]);
                 pionek_zielony[i].id = "p" + this.kolor + (i + 1);
                 pionek_zielony[i].appendChild(img_g[i]);
-                this.pawns[i] = pionek_zielony[i];
-                this.pionki[i].pawn = pionek_zielony[i];
+                this.pawns[i] = pionek_zielony[i];      //dodanie htmlowej reprezentacji pionka do listy htmlowych obiektów
+                this.pionki[i].pawn = pionek_zielony[i];  //przekazanie do obiektu pionka jego html'owej postaci
             } else if (this.kolor == "y") {
                 x.appendChild(pionek_zolty[i]);
                 pionek_zolty[i].id = "p" + this.kolor + (i + 1);
@@ -190,10 +190,14 @@ function Gracz(numer, kolor) {
 
 function Gra() {
     this.gracze = [4];  //to pole zawiera referencje do wszystkich graczy
-    this.kolejka = [];  //to samo co wyzej, ale jest posortowane
+    this.kolejka = [];  //to samo co wyzej, ale jest posortowane i tylko tą listą będziemy się posługiwać
     this.kolej = 0;     //wskazuje czyja jest obecnie kolej
     this.wyborPionkaPlansza = false;
     this.wyborPionkaStart = false;
+    this.poleStartowePionka;
+    this.poleKoncowePionka;
+
+
     this.przelaczKolejke = function () {
         if (this.kolej + 1 > this.kolejka.length - 1) {
             this.kolej = 0;
@@ -223,6 +227,8 @@ function Gra() {
 
     this.zoomCheck = function () {      // sprawdza czy nadać polu właściwość powiększenia widoku
         var i, k, l, liczbaPionkow, poleStartowe, poleKoncowe;
+        poleStartowe = this.poleStartowePionka;
+        poleKoncowe = this.poleKoncowePionka;
         for (i = 0; this.kolejka.length; i+=1) {
 
         }
@@ -236,8 +242,8 @@ function Pionek(nazwa, kolor, numer, pole, ruchy) {
     this.kolor = kolor;
     this.numer = numer;
     this.pole = pole;
-    this.poleStartowe = poleStartowe;
-    this.poleKoncowe = poleKoncowe;
+    this.poleStartowe;
+    this.poleKoncowe;
     this.ruchy = ruchy;
     this.x = 0;         // numer na kostce
     this.naPlanszy = false;
@@ -325,7 +331,7 @@ function Pionek(nazwa, kolor, numer, pole, ruchy) {
         }
         z = document.getElementById(this.pole);
         //z.innerHTML = this.nazwa;
-        z.appendChild(this.pawn);
+        z.appendChild(this.pawn);       //wkleja diva z ilustracją pionka na pole docelowe
         this.ruchy = this.ruchy + 1;
         this.poleKoncowe = currentPosition;
     };
