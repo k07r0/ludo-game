@@ -24,6 +24,7 @@ function Gracz(numer, kolor) {
         y.innerHTML = "";
         this.pionki[this.nrWybranegoPionka].naPlanszy = true;
         this.pionki[this.nrWybranegoPionka].naStarcie = false;
+        gra.zoomCheck(this.wybrano[1] + "s" + this.wybrano[2], this.kolor + 9)
         //window.alert("czy zmienił się stan pionka .naPlanszy? " + this.pionki[this.nrWybranegoPionka].naPlanszy);
     };
 
@@ -197,7 +198,6 @@ function Gra() {
     this.poleStartowePionka;
     this.poleKoncowePionka;
 
-
     this.przelaczKolejke = function () {
         if (this.kolej + 1 > this.kolejka.length - 1) {
             this.kolej = 0;
@@ -225,33 +225,22 @@ function Gra() {
         this.kolej_komunikat();
     };
 
-    this.klasaTestowa = function () {
-
-        window.alert("działa");
-    }
-
     this.zoomCheck = function (start, koniec) {      // sprawdza czy nadać polu właściwość powiększenia widoku
         var i, k, l, liczbaPionkow = 0, poleStartowe, poleKoncowe, sumaS = 0, sumaK = 0;
         var x; // chwytak
         poleStartowe = start;
         poleKoncowe = koniec;
-        //window.alert(this.kolejka.length);
         for (i = 0; i < this.kolejka.length; i+=1) {
             for (k = 0; k < this.kolejka[i].pionki.length; k+=1) {
                 if (poleStartowe === this.kolejka[i].pionki[k].pole) {
                     sumaS += 1;     //suma pionków na polu startowym
                 }}
-                
-                
             for (l = 0; l < this.kolejka[i].pionki.length; l+=1) {
                 if (poleKoncowe === this.kolejka[i].pionki[l].pole) {
                     sumaK += 1;         //suma pionków na polu końcowym
                 }
             }
         }
-    
-    
-    
     if (sumaS > 4) {
         //nadanie polu startowemu zooma
         x = document.getElementById(poleStartowe);
