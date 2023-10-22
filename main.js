@@ -363,7 +363,7 @@ function Pionek(nazwa, kolor, numer, pole, ruchy) {
         z.appendChild(this.pawn);       //wkleja diva z ilustracją pionka na pole docelowe
         this.ruchy = this.ruchy + 1;
         this.poleKoncowe = currentPosition;
-        gra.zoomCheck (this.poleStartowe, this.poleKoncowe);
+        gra.zoomCheck (this.poleStartowe, this.poleKoncowe);        //sprawdź czy zastosować przyblienie pól
 
     };
 }
