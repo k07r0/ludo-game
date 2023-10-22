@@ -231,31 +231,44 @@ function Gra() {
     }
 
     this.zoomCheck = function (start, koniec) {      // sprawdza czy nadać polu właściwość powiększenia widoku
-        var i, k, l, liczbaPionkow, poleStartowe, poleKoncowe, sumaS = 0, sumaK = 0;
+        var i, k, l, liczbaPionkow = 0, poleStartowe, poleKoncowe, sumaS = 0, sumaK = 0;
+        var x; // chwytak
         poleStartowe = start;
         poleKoncowe = koniec;
-        for (i = 0; this.kolejka.length; i+=1) {
-            for (k = 0; this.kolejka.pionki.length; i+=1) {
-                if (poleStartowe === this.kolejka.pionki[k].pole) {
+        //window.alert(this.kolejka.length);
+        for (i = 0; i < this.kolejka.length; i+=1) {
+            for (k = 0; k < this.kolejka[i].pionki.length; k+=1) {
+                if (poleStartowe === this.kolejka[i].pionki[k].pole) {
                     sumaS += 1;     //suma pionków na polu startowym
-                }
-            for (l = 0; this.kolejka.pionki.length; i+=1) {
-                if (poleKoncowe === this.kolejka.pionki[k].pole) {
+                }}
+                
+                
+            for (l = 0; l < this.kolejka[i].pionki.length; l+=1) {
+                if (poleKoncowe === this.kolejka[i].pionki[l].pole) {
                     sumaK += 1;         //suma pionków na polu końcowym
                 }
             }
-
         }
-    }
+    
+    
+    
     if (sumaS > 4) {
         //nadanie polu startowemu zooma
+        x = document.getElementById(poleStartowe);
+        x.classList.add("zoom");
     }else {
         //zabranie polu startowemu zooma
+        x = document.getElementById(poleStartowe);
+        x.classList.remove("zoom");
     }
     if (sumaK >4) {
         //nadanie zooma
+        x = document.getElementById(poleKoncowe);
+        x.classList.add("zoom");
     }else {
         //zabranie zooma
+        x = document.getElementById(poleKoncowe);
+        x.classList.remove("zoom");
     }
 } 
 
@@ -362,6 +375,7 @@ function Pionek(nazwa, kolor, numer, pole, ruchy) {
         this.ruchy = this.ruchy + 1;
         this.poleKoncowe = currentPosition;
         gra.zoomCheck (this.poleStartowe, this.poleKoncowe);
+
     };
 }
 
