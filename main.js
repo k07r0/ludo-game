@@ -225,7 +225,7 @@ function Gra() {
         this.kolej_komunikat();
     };
 
-    this.zoomCheck = function (start, koniec) {      // sprawdza czy nadać polu właściwość powiększenia widoku
+    this.zoomCheck = function (start, koniec) {      // nadaje lub zabiera polu powiększenie
         var i, k, l, liczbaPionkow = 0, poleStartowe, poleKoncowe, sumaS = 0, sumaK = 0;
         var x; // chwytak
         poleStartowe = start;
@@ -260,6 +260,20 @@ function Gra() {
         x.classList.remove("zoom");
     }
 } 
+
+this.checkCapturePawn = function (koniec) {
+    var i, j, poleKoncowe, x;
+    poleKoncowe = koniec;
+    for (i = 0; i < this.kolejka.length; i+=1) {
+        for (j = 0; j < this.kolejka[i].pionki.length; j+=1) {
+            if (poleKoncowe === this.kolejka[i].pionki[j].pole) {
+                this.kolejka[i].pionki[j].pole = this.kolejka[i].pionki[j].kolor +"s"+ 
+                this.kolejka[i].pionki[j].numer; //zmień pole obiektu "Pionek"
+                x = document.getElementById(this.kolejka[i].pionki[j].nazwa);
+                
+                //przenieś zbitego pionka na start
+            }}}
+}
 
 
 }
@@ -310,8 +324,8 @@ function Pionek(nazwa, kolor, numer, pole, ruchy) {
                     z.innerHTML = "";
                     this.pole = currentPosition;
                 } else if ((this.x + tempNr) === 19) {
-                    window.alert("META! \r\n Pionek wraca na swoje pole startowe.");
-                    currentPosition = tempChar + 9;
+                    window.alert("META!");
+                    currentPosition = tempChar + 19;
                     z = document.getElementById(this.pole);
                     z.innerHTML = "";
                     this.pole = currentPosition;
