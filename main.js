@@ -261,16 +261,20 @@ function Gra() {
     }
 } 
 
-this.checkCapturePawn = function (koniec) {
-    var i, j, poleKoncowe, x;
+this.checkCapturePawn = function (kolor, koniec) {
+    var i, j, poleKoncowe, x, kolorPionka;
     poleKoncowe = koniec;
+    kolorPionka = kolor;
     for (i = 0; i < this.kolejka.length; i+=1) {
         for (j = 0; j < this.kolejka[i].pionki.length; j+=1) {
-            if (poleKoncowe === this.kolejka[i].pionki[j].pole) {
+            if (poleKoncowe === this.kolejka[i].pionki[j].pole &&
+                 (kolorPionka !== this.kolejka[i].pionki[j].kolor)) {
                 this.kolejka[i].pionki[j].pole = this.kolejka[i].pionki[j].kolor +"s"+ 
                 this.kolejka[i].pionki[j].numer; //zmień pole obiektu "Pionek"
-                x = document.getElementById(this.kolejka[i].pionki[j].nazwa);
-                
+                x = document.getElementById(this.kolejka[i].pionki[j].pole);
+                x.appendChild(this.kolejka[i].pionki[j].pawn);
+                this.kolejka[i].pionki[j].naPlanszy = false;
+                this.kolejka[i].pionki[j].naStarcie = true;
                 //przenieś zbitego pionka na start
             }}}
 }
@@ -378,6 +382,7 @@ function Pionek(nazwa, kolor, numer, pole, ruchy) {
         this.ruchy = this.ruchy + 1;
         this.poleKoncowe = currentPosition;
         gra.zoomCheck (this.poleStartowe, this.poleKoncowe);        //sprawdź czy zastosować przyblienie pól
+        gra.checkCapturePawn (this.kolor, this.poleKoncowe);
 
     };
 }
